@@ -1,4 +1,3 @@
-// Course Class
 class Course{
     constructor(title,instructor,image){
         this.courseID = Math.floor(Math.random()*10000);
@@ -7,7 +6,7 @@ class Course{
         this.image = image;
     }
 }
-// UI Class
+
 class UI {
     addCourseToList(course) {
         const list = document.getElementById("course-list");
@@ -106,37 +105,35 @@ class Storage {
 
 
 
-document.getElementById("new-course").addEventListener("submit",
+    document.getElementById("new-course").addEventListener("submit",
     function(event){
 
         const title = document.getElementById("title").value;
         const instructor = document.getElementById("instructor").value;
         const image = document.getElementById("image").value;
 
-        // create course object
+       
         const course = new Course(title,instructor,image);
 
-
-        //create UI
         const ui = new UI();
 
 
         if(title==="" || instructor==="" || image===""){
             ui.showAlert("Please complete the form","warning");
         }else{
-            // add course to the list
+           
             ui.addCourseToList(course);
 
-            // save to local storage
+           
             Storage.addCourse(course);
             
-            //clear controls
+            
             ui.clearControls();
 
             ui.showAlert("The course has been added","success");
 
         }
-        //clear controls
+        
         ui.clearControls();
 
         event.preventDefault();
@@ -145,10 +142,10 @@ document.getElementById("new-course").addEventListener("submit",
 document.getElementById("course-list").addEventListener("click",function(event){
     const ui = new UI();
    
-    // delete course
+    
     if(ui.deleteCourse(event.target)==true){
          
-         // delete from local storage
+        
         Storage.deleteCourse(event.target);
     
         ui.showAlert("The course has been deleted","danger");  
