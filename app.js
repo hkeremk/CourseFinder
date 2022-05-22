@@ -47,7 +47,7 @@ class UI {
      `;
 
      const row = document.querySelector(".row");
-     //beforeBegin , afterBegin , beforeEnd , afterEnd
+     
      row.insertAdjacentHTML("beforeBegin",alert);
 
     setTimeout(() => {
